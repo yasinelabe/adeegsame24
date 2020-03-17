@@ -15,9 +15,16 @@ export default function Quantities(props) {
     const list = props.quantity.map((item,i) => {
        console.log(context.getOrder());
         return (
-            <ul key={item.id}>
-                <li><input type="checkbox" value={item.id} onChange={handleChange} /> {item.quantity}</li>
-            </ul>
+            <ul  key={item.id}>
+          <li><label className="switch">
+              <input type="checkbox" className="switch__input" value={item.id} onChange={handleChange} />
+              <div className="switch__toggle">
+                <div className="switch__handle" />
+              </div>
+            </label>
+            {item.quantity}
+            <span className="p">{item.price}</span></li>
+        </ul>
         )
     })
    return list;

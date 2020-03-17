@@ -11,7 +11,9 @@ class RootProvider extends Component {
 			categories: [],
 			messages: [],
 			cart: [],
-			ordered: [{token:localStorage.getItem('token')}]
+			ordered: [{token:localStorage.getItem('token')}],
+			whoisopen: null,
+			checkout: false
 		};
 	}
 
@@ -48,6 +50,27 @@ class RootProvider extends Component {
 
 							// console.log(this.state.cart);
 						}
+					},
+					setCheckOut: (v) => {
+						this.setState({
+							checkout: v
+						})
+					},
+					getCheckOut: () => {
+						return this.state.checkout
+					},
+					setWhoIsOpen: (div) => {
+						this.setState({
+							whoisopen: div
+						})
+					},
+					getWhoIsOpen: () => {
+						return this.state.whoisopen
+					},
+					removeWhoIsOpen: () => {
+						this.setState({
+							whoisopen: null
+						})
 					},
 					removeOrder: (item) => {
 						let maorder = this.state.ordered.filter((value, i) => {

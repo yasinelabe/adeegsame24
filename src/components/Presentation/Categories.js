@@ -3,10 +3,12 @@ import axios from 'axios';
 import auth from '../auth/auth';
 import API_URL from '../../config/config';
 import Resource from '../Logic/common/Resource';
-import ProductsList from './Lists/ProductsList';
+import CategoriesList from './Lists/CategoriesList';
+import Checkout from './Checkout';
 import { RootContext } from '../../context/RootContext';
 
-const Products = (props) => {
+
+const Categories = (props) => {
 	let context = React.useContext(RootContext);
 	
 	useEffect(() => {
@@ -29,29 +31,37 @@ const Products = (props) => {
 			});
 	}, []);
 
-	const productslist = () => {
-		let className =  (context.getWhoIsOpen() === props.category_id) ? ' ' : 'items';
-		console.log(className)
+	const categorieslist = () => {
 		return (
-			<div className={'content_categories ' + className }>
+			
 				<Resource
-					path={API_URL + '/fetch_products'}
-					data = {props.category_id}
+					path={API_URL + '/fetch_categories'}
 					render={(data) => {
-						
-						if (data.loading) return <p>Loading products</p>;
-						if (data.error) return <p>Error while loading products 😠</p>;
-						return <ProductsList products={data.payload} />;
+						if (data.loading) return <p>Loading Orders</p>;
+						if (data.error) return <p>Error while loading orders 😠</p>;
+						return <CategoriesList categories={data.payload} />;
 					}}
 				/>
-				
+			
+			
+		);
+	};
+
+	const loadCheckOut = () => {
+		return (
+			<div>
+				<Resource
+					render={() => {
+						return <Checkout />;
+					}}
+				/>
 			</div>
 		);
 	};
 
-	
 
-	return  productslist();
+
+	return context.getCheckOut() ? loadCheckOut() : categorieslist();
 };
 
-export default Products;
+export default Categories;

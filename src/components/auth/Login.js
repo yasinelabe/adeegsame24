@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import Axios from 'axios';
 import auth from './auth';
 import API_URL from '../../config/config';
-import {Redirect} from 'react-router-dom'
+import { Redirect } from 'react-router-dom';
+import sallad from '../../images/sallad.png';
 export class Login extends Component {
 	state = {
 		username: null,
@@ -15,7 +16,6 @@ export class Login extends Component {
 			[e.target.name]: e.target.value
 		});
 	};
-
 	handleSubmit = (e) => {
 		e.preventDefault();
 		const data = this.state;
@@ -32,11 +32,11 @@ export class Login extends Component {
 						this.props.history.push('/dashboard');
 					});
 				} else {
-					console.log(res.data,'invalid login');
+					console.log(res.data, 'invalid login');
 				}
 			})
 			.catch((err) => {
-				console.log(err,'Invalid Login');
+				console.log(err, 'Invalid Login');
 			});
 	};
 
@@ -45,10 +45,31 @@ export class Login extends Component {
 			<Redirect to="/dashboard" />
 		) : (
 			<div>
-				<form onSubmit={this.handleSubmit}>
-					<input type="number" name="phone" onChange={this.handleChange} />
-					<input type="text" name="password" onChange={this.handleChange} />
-					<input type="submit" value="Login" />
+				<div className="preloader">
+					<img src={sallad} alt="loading" />
+				</div>
+				<form className="form" onSubmit={this.handleSubmit}>
+					<div>
+						<i className="fa fa-phone" /> &nbsp; &nbsp; &nbsp;<input
+							type="number"
+							name="phone"
+							className="text-input text-input--material"
+							placeholder="TALEEFAN NUMBERKA"
+							onChange={this.handleChange}
+						/>
+					</div>
+					<div>
+						<i className="fa fa-lock" /> &nbsp; &nbsp; &nbsp;<input
+							type="password"
+							className="text-input text-input--material"
+							placeholder="FURE SIREEDKA"
+							name="password"
+							onChange={this.handleChange}
+						/>
+					</div>
+					<div>
+						<input type="submit" className="button" defaultValue="BOOQO" />
+					</div>
 				</form>
 			</div>
 		);

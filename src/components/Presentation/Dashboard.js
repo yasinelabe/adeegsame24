@@ -1,57 +1,39 @@
-import React,{useEffect} from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import auth from '../auth/auth'
-import axios from 'axios'
-import API_URL from '../../config/config'
+import auth from '../auth/auth';
+import axios from 'axios';
+import API_URL from '../../config/config';
+import GridContainer from './common/GridContainer';
+import Header from './common/Header.js';
+import Products from './Products.js';
 
 const Dashboard = (props) => {
-
-    const handleLogout = (e) => {
-        return auth.logout(() => {props.history.push('/login')});
-	}
 	
-	useEffect(()=>{
+
+	useEffect(() => {
 		axios({
-            method: 'post',
-            url: API_URL+'/is_token_valid',
-            headers: { 'content-type': 'application/json' },
-            data: { token: localStorage.getItem('token') }
-        })
-            .then((res) => {
-                if(res.data.valid){
-					
+			method: 'post',
+			url: API_URL + '/is_token_valid',
+			headers: { 'content-type': 'application/json' },
+			data: { token: localStorage.getItem('token') }
+		})
+			.then((res) => {
+				if (res.data.valid) {
+				} else {
+					auth.logout(() => {
+						props.history.push('/login');
+					});
 				}
-				else{
-					auth.logout(()=>{
-						props.history.push('/login')
-					})
-				}
-            })
-            .catch((err) => {
-                console.log(err)
-            });
-	},[])
+			})
+			.catch((err) => {
+				console.log(err);
+			});
+	}, []);
 	return (
 		<div>
-			<ul>
-				{/* <li>
-					<Link to="/drivers">Drivers</Link>
-				</li>
-				<li>
-					<Link to="/cars">Cars</Link>
-				</li>
-				<li>
-					<Link to="/stores">Stores</Link>
-				</li>
-				<li>
-					<Link to="/customers">Customers</Link>
-				</li> */}
-				<li>
-					<Link to="/products">Products</Link>
-				</li>
-			</ul>
-            <br></br>
-            <button onClick={() => {handleLogout()}}>Logout</button>
+			<Header />
+			<GridContainer />
+			{/* <Products /> */}
 		</div>
 	);
 };

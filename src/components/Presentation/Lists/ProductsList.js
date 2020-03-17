@@ -21,36 +21,40 @@ const ProductsList = (props) => {
 	const productsList = props.products.map((product) => {
 		let text = '';
 		let color = '';
-		let btn = false;
-		console.log(products);
-
+		
 		if (products.includes(product.pk_product_id)) {
-			color = 'red';
+			color = 'green';
 			text = 'Dhig';
 		} else {
-			color = 'green';
+			color = 'red';
 			text = 'Qaado';
 		}
 
 		return (
-			<div key={product.pk_product_id} className="product_car">
-				<div className="card_image_holder">
-					{/* <img src={product.api_url} className="card_image" alt="productimage"/> */}
+			<div className="item" key={product.pk_product_id}>
+				<div className="item_image" style={{backgroundImage: `url(${product.api_url})`}}>{/* <img src="./images/basal.jpg"> */}</div>
+				<div className="item_content">
+					<h5 className="title">{product.product_name}</h5>
+					<div className="item_content_icons">
+						<span>
+							<i className="fa fa-stack-overflow" />
+						</span>{' '}
+						Qauntity
+						<span>
+							<i className="fa fa-money" />
+						</span>{' '}
+						Price
+					</div>
 				</div>
-				<div className="productInfo">
-					<h3>{product.product_name}</h3>
-				</div>
-
-				<div className="card_footer">
-					<button
+				<span className="leading">
+					<i
+						className="fa fa-shopping-cart"
 						onClick={() => {
 							addToCart(product.pk_product_id);
 						}}
-						style={{ background: color }}
-					>
-						{text}
-					</button>
-				</div>
+						style={{ color: color }}
+					/>
+				</span>
 			</div>
 		);
 	});
