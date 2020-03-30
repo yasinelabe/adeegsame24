@@ -13,7 +13,12 @@ class RootProvider extends Component {
 			cart: [],
 			ordered: [{token:localStorage.getItem('token')}],
 			whoisopen: null,
-			checkout: false
+			checkout: false,
+			content: null,
+			quantities: [],
+			popup: false,
+			selected: null,
+			dalabaat: []
 		};
 	}
 
@@ -38,19 +43,45 @@ class RootProvider extends Component {
 							});
 						}
 					},
+					removeCart: (pid) => {
+						let macart = this.state.cart.filter((value, i) => {
+								return value.pid !== pid;
+							});
+							this.setState({
+								cart: macart
+							});
+					},
+					getCart : () =>{
+						return this.state.cart;
+					},
 
 					addOrder: (item) => {
 						const m = [ ...this.state.ordered, item ];
-						// console.log(this.state.cart.includes(product));
-						// console.log(cart)
+				
 						if (this.state.ordered.includes(item) === false) {
 							this.setState({
 								ordered: m
 							});
 
-							// console.log(this.state.cart);
 						}
 					},
+					// addDalabaat: (item) => {
+					// 	const m = [ ...this.state.dalabaat, item ];
+				
+					// 	if (this.state.dalabaat.includes(item) === false) {
+					// 		this.setState({
+					// 			dalabaat: m
+					// 		});
+					// 	}else{
+					// 		let maorder = this.state.dalabaat.filter((value, i) => {
+					// 		return value !== item;
+					// 	});
+					// 	this.setState({
+					// 		dalabaat: maorder
+					// 	});
+					// 	}
+					// },
+					
 					setCheckOut: (v) => {
 						this.setState({
 							checkout: v
@@ -83,11 +114,41 @@ class RootProvider extends Component {
 					getTotalCart: () => {
 						return this.state.cart.length;
 					},
-					getCart: () => {
-						return this.state.cart;
-					},
 					getOrder: () => {
 						return this.state.ordered;
+					},
+					getContent: () => {
+						return this.state.content;
+					},
+					setContent: (v) => {
+						this.setState({
+							content: v
+						})
+					},
+					setQuantities: (q) =>{
+						this.setState({
+							quantities:q
+						})
+					},
+
+					getQuantities: () =>{
+						return this.state.quantities;
+					},
+					setPopup: (v) =>{
+						this.setState({
+							popup: v
+						})
+					},
+					getPopup : () =>{
+						return this.state.popup;
+					},
+					setSelected: (v) =>{
+						this.setState({
+							selected: v
+						})
+					},
+					getSelected : () =>{
+						return this.state.selected;
 					}
 				}}
 			>

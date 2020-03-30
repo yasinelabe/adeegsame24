@@ -7,43 +7,23 @@ import CategoriesList from './Lists/CategoriesList';
 import Checkout from './Checkout';
 import { RootContext } from '../../context/RootContext';
 
-
 const Categories = (props) => {
 	let context = React.useContext(RootContext);
-	
+
 	useEffect(() => {
-		axios({
-			method: 'post',
-			url: API_URL + '/is_token_valid',
-			headers: { 'content-type': 'application/json' },
-			data: { token: localStorage.getItem('token') }
-		})
-			.then((res) => {
-				if (res.data.valid) {
-				} else {
-					auth.logout(() => {
-						props.history.push('/login');
-					});
-				}
-			})
-			.catch((err) => {
-				console.log(err);
-			});
+		document.querySelector('body').style.overflow = 'auto';
 	}, []);
 
 	const categorieslist = () => {
 		return (
-			
-				<Resource
-					path={API_URL + '/fetch_categories'}
-					render={(data) => {
-						if (data.loading) return <p>Loading Orders</p>;
-						if (data.error) return <p>Error while loading orders 😠</p>;
-						return <CategoriesList categories={data.payload} />;
-					}}
-				/>
-			
-			
+			<Resource
+				path={API_URL + '/fetch_categories'}
+				render={(data) => {
+					if (data.loading) return <div className="loader"></div>;
+					if (data.error) return <p>Error while loading categories 😠</p>;
+					return <CategoriesList categories={data.payload} />;
+				}}
+			/>
 		);
 	};
 
@@ -55,13 +35,13 @@ const Categories = (props) => {
 						return <Checkout />;
 					}}
 				/>
+				<div className="notify"></div>
 			</div>
 		);
 	};
 
-
-
 	return context.getCheckOut() ? loadCheckOut() : categorieslist();
+	// return  categorieslist();
 };
 
 export default Categories;

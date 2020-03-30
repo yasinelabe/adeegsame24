@@ -1,47 +1,38 @@
-import React, { useEffect, useState } from 'react';
-import { library } from '@fortawesome/fontawesome-svg-core';
-import { fab } from '@fortawesome/free-brands-svg-icons';
-import { faBars } from '@fortawesome/free-solid-svg-icons';
+import React from 'react';
 
 import ProtectedRoute from './components/auth/protected.route';
 import { Route, Switch } from 'react-router-dom';
 import RootProvider, { RootContext } from './context/RootContext';
-import Products from './components/Presentation/Products';
-import Categories from './components/Presentation/Categories';
 import Login from './components/auth/Login';
 import Signup from './components/auth/Signup';
 import Dashboard from './components/Presentation/Dashboard';
 import Home from './components/Presentation/Home';
-import Header from './components/Presentation/common/Header';
-import Nav from './components/Presentation/common/Nav';
-import Checkout from './components/Presentation/Checkout';
+import Privacy from './components/Presentation/Privacy';
 
 function App() {
-	useEffect(() => {
-		const script = document.createElement('script');
+	// useEffect(() => {
+	// 	const script = document.createElement('script');
 
-		script.src = '/scripts.js';
-		script.type = 'text/javascript';
-		script.async = true;
-		document.body.appendChild(script);
-		console.log('inserted');
-	}, []);
-
-	library.add(fab, faBars);
+	// 	script.src = '/scripts.js';
+	// 	script.type = 'text/javascript';
+	// 	script.async = true;
+	// 	document.body.appendChild(script);
+	// 	console.log('inserted');
+	// }, []);
 
 	return (
 		<RootProvider>
 			<div className="App">
-				{/* <Route component ={Header} /> */}
-				{/* <Route component ={Nav}/> */}
+			
 				<Switch>
 					<Route exact path="/login" component={Login} />
 					<Route exact path="/signup" component={Signup} />
 					<Route exact path="/" component={Home} />
 					<Route exact path="/home" component={Home} />
-					<ProtectedRoute exact path="/checkout" component={Checkout} />
+
 					<ProtectedRoute exact path="/dashboard" component={Dashboard} />
-					{/* <ProtectedRoute exact path="/products" component={Products} /> */}
+					<ProtectedRoute exact path="/privacy" component={Privacy} />
+	
 					<Route path="*" render={() => '404 page not found'} />
 				</Switch>
 			</div>

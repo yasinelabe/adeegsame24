@@ -3,12 +3,16 @@ import Axios from 'axios';
 import auth from './auth';
 import API_URL from '../../config/config';
 import { Redirect } from 'react-router-dom';
-import sallad from '../../images/sallad.png';
+
 export class Login extends Component {
 	state = {
 		username: null,
 		password: null
 	};
+
+	componentDidMount() {
+		document.querySelector('body').style.overflow = 'hidden';
+	}
 
 	handleChange = (e) => {
 		e.preventDefault();
@@ -29,14 +33,34 @@ export class Login extends Component {
 				if (res.data.valid) {
 					localStorage.setItem('token', res.data.token);
 					auth.login(() => {
-						this.props.history.push('/dashboard');
+						window.location.reload();
 					});
 				} else {
-					console.log(res.data, 'invalid login');
+					document.querySelector('.notify').style.padding = '10px';
+					document.querySelector('.notify').innerHTML = '<p>Xog khaldan ayad galisay!</p>';
+					document.querySelector('.notify').style.height = '5vh';
+					document.querySelector('.notify').style.overflow = 'hidden';
+					document.querySelector('.notify').style.background = 'red';
+
+					setTimeout(() => {
+						document.querySelector('.notify').innerHTML = '';
+						document.querySelector('.notify').style.height = '0px';
+						document.querySelector('.notify').style.padding = '0';
+					}, 5000);
 				}
 			})
 			.catch((err) => {
-				console.log(err, 'Invalid Login');
+				document.querySelector('.notify').style.padding = '10px';
+				document.querySelector('.notify').innerHTML = '<p>Xog khaldan ayad galisay!</p>';
+				document.querySelector('.notify').style.height = '5vh';
+				document.querySelector('.notify').style.overflow = 'hidden';
+				document.querySelector('.notify').style.background = 'red';
+
+				setTimeout(() => {
+					document.querySelector('.notify').innerHTML = '';
+					document.querySelector('.notify').style.height = '0px';
+					document.querySelector('.notify').style.padding = '0';
+				}, 5000);
 			});
 	};
 
@@ -45,9 +69,7 @@ export class Login extends Component {
 			<Redirect to="/dashboard" />
 		) : (
 			<div>
-				<div className="preloader">
-					<img src={sallad} alt="loading" />
-				</div>
+				
 				<form className="form" onSubmit={this.handleSubmit}>
 					<div>
 						<i className="fa fa-phone" /> &nbsp; &nbsp; &nbsp;<input
@@ -56,6 +78,7 @@ export class Login extends Component {
 							className="text-input text-input--material"
 							placeholder="TALEEFAN NUMBERKA"
 							onChange={this.handleChange}
+							required
 						/>
 					</div>
 					<div>
@@ -65,12 +88,22 @@ export class Login extends Component {
 							placeholder="FURE SIREEDKA"
 							name="password"
 							onChange={this.handleChange}
+							required
 						/>
 					</div>
 					<div>
-						<input type="submit" className="button" defaultValue="BOOQO" />
+					
+						<button type="submit" className="button" >GAL <i className="fa fa-send" style={{color:'white'}}></i></button>
 					</div>
+					.......................................................
+					<a
+							
+							onClick={() => this.props.history.push('/signup')}
+						>
+							Is diwaan gali 
+						</a>
 				</form>
+				<div className="notify" />
 			</div>
 		);
 

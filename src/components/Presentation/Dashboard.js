@@ -28,6 +28,8 @@ const Dashboard = (props) => {
 			.catch((err) => {
 				console.log(err);
 			});
+		document.querySelector('body').style.overflow = 'auto';
+
 	}, []);
 	return (
 		<div>

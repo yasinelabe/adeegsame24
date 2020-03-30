@@ -79,6 +79,7 @@ function showMenu() {
 }
 
 function hideMenu() {
+	document.getElementById('sidenav').style.zIndex = '-1';
 	document.getElementById('sidenav').style.opacity = '0';
 	document.getElementById('sidenav').style.width = '0px';
 	document.querySelector('.fa-ul').style.width = '0px';

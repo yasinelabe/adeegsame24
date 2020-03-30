@@ -1,23 +1,30 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import Categories from '../Categories';
 import Nav from './Nav'
+import TopCategories from '../TopCategories';
+import { RootContext } from '../../../context/RootContext';
+// import { RootContext } from '../../../context/RootContext';
 export default function GridContainer(props) {
 
-    
-	 
-   
+	let context = React.useContext(RootContext);
+	
+	useEffect(() => {
+		let contnt = document.getElementById('content');
+		context.setContent(contnt.childNodes)
+	}, [])
+	
 	return (
 		<div className="grid_container">
 			<div id="shadow" />
 			<Nav/>
+			
 			<section id="categories">
-				<div className="container">
-					<div className="category_image" />
-					<div className="category_image2" />
-					<div className="category_image3" />
+				{/* <div className="container">
+				<TopCategories/>
+				
 				</div>
-				<h3 id="c_image_caption">Fruits</h3>
+				 */}
 			</section>
 			<section id="content">
 				<Categories/>

@@ -1,33 +1,36 @@
 import React from 'react';
-import { Redirect } from 'react-router-dom';
+import { Redirect, Link } from 'react-router-dom';
 
 import auth from '../../auth/auth';
 export default function Nav(props) {
-
 	const handleLogout = (e) => {
-        return auth.logout(() => {
-         return <Redirect to='/login'/>
-        });
-      };
+		auth.logout(() => {
+			window.location.reload();
+		});
+	};
 	return (
 		<nav id="sidenav">
 			<div className="hero_image" />
 			<div className="nav_list">
 				<ul className="fa-ul">
 					<li>
-						<span className="nav_icons">
-							<i className="fa fa-home" />
-						</span>Home
+						<a href="/" style={{textDecoration:'none',color:'black'}}>
+							<span className="nav_icons">
+								<i className="fa fa-home" />
+							</span>Home
+						</a>
 					</li>
-					<li>
+					{/* <li>
 						<span className="nav_icons">
 							<i className="fa fa-language" />
 						</span>Languages
-					</li>
+					</li> */}
 					<li>
-						<span className="nav_icons">
-							<i className="fa fa-lock" />
-						</span>Privacy Policy
+					<a href="/privacy" style={{textDecoration:'none',color:'black'}}>
+							<span className="nav_icons">
+								<i className="fa fa-lock" />
+							</span>Privacy Policy
+						</a>
 					</li>
 					<li>
 						<span className="nav_icons">
@@ -39,7 +42,7 @@ export default function Nav(props) {
 							<i className="fa fa-star" />
 						</span>Rate Us
 					</li>
-					<li onClick = {() => handleLogout()}>
+					<li onClick={() => handleLogout()}>
 						<span className="nav_icons">
 							<i className="fa fa-power-off" />
 						</span>Logout
