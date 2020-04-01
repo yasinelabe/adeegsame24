@@ -22,7 +22,7 @@ const Products = (props) => {
 					data = {props.category_id}
 					render={(data) => {
 						// console.log(data);
-						if (data.loading) return <div class="loader"></div>;
+						if (data.loading) return <div className="loader"></div>;
 						if (data.error) return <p>Error while loading products 😠</p>;
 						return <ProductsList products={data.payload} />;
 					}}

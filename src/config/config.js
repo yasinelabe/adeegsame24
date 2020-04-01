@@ -1,4 +1,4 @@
-const API_URL = 'http://maal-bc.com/adeegside/api';
+const API_URL = 'https://adeegside.com/adeegside/api';
 
 
 
