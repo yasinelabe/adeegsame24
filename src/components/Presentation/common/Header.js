@@ -45,7 +45,7 @@ export default function Header(props) {
 	const handleSearch = (e) => {
 		const name = document.querySelectorAll('.title');
 		name.forEach((item, index, array) => {
-			let regex = new RegExp(e.target.value,"g");
+			let regex = new RegExp(e.target.value.toLowerCase(),"g");
 			let parent = item.parentNode.parentNode.parentNode;
 			const cat = item.parentNode.parentNode;
 			if (item.textContent.toLowerCase().match(regex) === null) {
