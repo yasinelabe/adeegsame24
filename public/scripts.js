@@ -105,7 +105,7 @@ function hideSearch() {
 	document.getElementById('searchinput').style.width = '0%';
 	document.getElementById('searchinput').style.padding = '0';
 	document.querySelector('#sitename').style.display = 'block';
-	document.querySelector('.left-head').style.width = '45%';
+	document.querySelector('.left-head').style.width = '75%';
 	document.querySelector('.center-head').style.width = '20%';
 
 	document.querySelector('.return').style.display = 'none';

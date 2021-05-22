@@ -7,24 +7,19 @@ const ProductsList = (props) => {
 		if (context.getCart().length >= 1) {
 			context.getCart().map((item) => {
 				if (item.pid === pid) {
-					console.log('already exists we should take it out');
 					context.setPopup(false);
 					context.removeCart(pid);
 				} else {
-					console.log('not exists first time added to the wallet carft');
 					context.setQuantities(quantities);
 					context.setSelected([pid,productname]);
 					context.setPopup(true);
 				}
 			});
 		} else {
-			console.log('first request >= 1');
 			context.setQuantities(quantities);
 			context.setSelected([pid,productname]);
 			context.setPopup(true);
 		}
-
-		console.log(context.getCart());
 	};
 	
 	let productsList = '';
@@ -42,7 +37,7 @@ const ProductsList = (props) => {
 			}
 
 			return (
-				<div className="item" key={product.pk_product_id}>
+				<div className="product_item" key={product.pk_product_id}>
 					<div className="item_image" style={{ backgroundImage: `url(${product.api_url})` }}>
 						{/* <img src="./images/basal.jpg"> */}
 					</div>

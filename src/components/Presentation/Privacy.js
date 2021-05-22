@@ -13,10 +13,6 @@ export default function Privacy() {
 				<div className="container">
 					<h2>Privacy Policy</h2>{' '}
 					<p>
-						Bitgre built the Adeegside app as a Free app. This SERVICE is provided by Bitgre at no cost and
-						is intended for use as is.
-					</p>{' '}
-					<p>
 						This page is used to inform visitors regarding our policies with the collection, use, and
 						disclosure of Personal Information if anyone decided to use our Service.
 					</p>{' '}
@@ -28,7 +24,7 @@ export default function Privacy() {
 					</p>{' '}
 					<p>
 						The terms used in this Privacy Policy have the same meanings as in our Terms and Conditions,
-						which is accessible at Adeegside unless otherwise defined in this Privacy Policy.
+						which is accessible at Adeegsame24 unless otherwise defined in this Privacy Policy.
 					</p>{' '}
 					<p>
 						<strong>Information Collection and Use</strong>
@@ -123,7 +119,7 @@ export default function Privacy() {
 					</p>{' '}
 					<p>
 						If you have any questions or suggestions about our Privacy Policy, do not hesitate to contact us
-						at info@adeegside.com.
+						at info@Adeegsame24.com.
 					</p>
 				</div>
 			</section>

@@ -41,7 +41,6 @@ const Categories = (props) => {
 	};
 
 	return context.getCheckOut() ? loadCheckOut() : categorieslist();
-	// return  categorieslist();
 };
 
 export default Categories;

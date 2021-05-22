@@ -1,8 +1,2 @@
-const API_URL = 'https://adeegside.com/adeegside/api';
-
-
-
-
-
-
+const API_URL = 'https://ilmoquraanbar.com/adeegsame24/api';
 export default API_URL
