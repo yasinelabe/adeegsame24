@@ -104,6 +104,7 @@ function hideSearch() {
 	document.getElementById('searchbtn').style.display = 'block';
 	document.getElementById('searchinput').style.width = '0%';
 	document.getElementById('searchinput').style.padding = '0';
+	document.getElementById('searchinput').style.height = '7vh';
 	document.querySelector('#sitename').style.display = 'block';
 	document.querySelector('.left-head').style.width = '75%';
 	document.querySelector('.center-head').style.width = '20%';
@@ -116,6 +117,7 @@ function showSearch() {
 	document.getElementById('searchbtn').style.display = 'none';
 	document.getElementById('searchinput').style.width = '100%';
 	document.getElementById('searchinput').style.padding = '10px';
+	document.getElementById('searchinput').style.height = '7vh';
 	document.querySelector('#sitename').style.display = 'none';
 	document.querySelector('.left-head').style.width = '8%';
 	document.querySelector('.center-head').style.width = '57%';
