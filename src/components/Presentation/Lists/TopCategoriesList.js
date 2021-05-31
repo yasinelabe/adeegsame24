@@ -21,7 +21,7 @@ const TopCategoriesList = (props) => {
     );
   });
   return (
-    <OwlCarousel className="owl-theme" items="1" loop autoplay >
+    <OwlCarousel className="owl-theme" items="1" loop autoplay dots={false} >
       {topCategoriesList}
     </OwlCarousel>
   );

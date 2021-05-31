@@ -38,6 +38,7 @@ class Auth {
 
 	logout(cb) {
 		localStorage.removeItem('token');
+		localStorage.removeItem('user');
 		this.authenticated = false;
 		cb();
 	}

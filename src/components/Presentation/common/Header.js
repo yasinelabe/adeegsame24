@@ -101,6 +101,7 @@ export default function Header(props) {
             id="searchinput"
             placeholder="Enter Product Name"
             onChange={handleSearch}
+            style={{height:"7vh"}}
           />
         </div>
 
@@ -148,7 +149,7 @@ export default function Header(props) {
             className="input"
             name="xaddiga"
             id="xaddiga"
-            value="1"
+            
             placeholder="xaddiga"
           onChange={(e) => handleChange(e, context.getSelected())}
           />

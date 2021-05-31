@@ -32,6 +32,8 @@ export class Login extends Component {
       .then((res) => {
         if (res.data.valid) {
           localStorage.setItem("token", res.data.token);
+          localStorage.setItem("user",res.data.user)
+          console.log(JSON.stringify(res.data.user))
           auth.login(() => {
             window.location.reload();
           });

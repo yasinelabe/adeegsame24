@@ -4,6 +4,7 @@ import Categories from "../Categories";
 import Nav from "./Nav";
 import TopCategories from "../TopCategories";
 import { RootContext } from "../../../context/RootContext";
+import Footer from "./Footer";
 export default function GridContainer(props) {
   let context = React.useContext(RootContext);
 
@@ -17,12 +18,15 @@ export default function GridContainer(props) {
       <div id="shadow" />
       <Nav />
       <section id="categories" className="no-print">
-        <div className="container no-print">
+        {/* <div className="container no-print"> */}
           <TopCategories />
-        </div>
+        {/* </div> */}
       </section>
       <section id="content">
         <Categories />
+      </section>
+      <section>
+        <Footer/>
       </section>
     </div>
   );

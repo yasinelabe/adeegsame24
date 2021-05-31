@@ -5,7 +5,6 @@ import axios from "axios";
 import API_URL from "../../config/config";
 import GridContainer from "./common/GridContainer";
 import Header from "./common/Header.js";
-import Products from "./Products.js";
 
 const Dashboard = (props) => {
   useEffect(() => {
