@@ -18,9 +18,7 @@ export default function GridContainer(props) {
       <div id="shadow" />
       <Nav />
       <section id="categories" className="no-print">
-        {/* <div className="container no-print"> */}
           <TopCategories />
-        {/* </div> */}
       </section>
       <section id="content">
         <Categories />

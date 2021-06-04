@@ -12,12 +12,13 @@ export default function Nav(props) {
 		<nav id="sidenav">
 			<div className="hero_image" />
 		<div className="user_info">
-			<h3>{user.fullname}</h3>
+			<h5>{user.fullname}</h5>
 			<small>@{user.phone}</small>
-		</div>
 			<div className="customer_name">
 					{user.fullname[0]}
 			</div>
+		</div>
+			
 			<div className="nav_list">
 				<ul className="fa-ul">
 					<li>
@@ -27,11 +28,7 @@ export default function Nav(props) {
 							</span>Home
 						</a>
 					</li>
-					{/* <li>
-						<span className="nav_icons">
-							<i className="fa fa-language" />
-						</span>Languages
-					</li> */}
+			
 					<li>
 					<a href="/privacy" style={{textDecoration:'none',color:'black'}}>
 							<span className="nav_icons">

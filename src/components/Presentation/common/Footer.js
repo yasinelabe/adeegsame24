@@ -5,16 +5,16 @@ export default function Footer() {
         <div className="footer">
                 <ul>
                     <li>
-                        <a href="#"><i className="fa fa-home"></i></a>
+                        <a href="/"><i className="fa fa-home"></i></a>
                     </li>
                     <li>
-                        <a href="#"><i className="fa fa-user"></i></a>
+                        <a href="/profile"><i className="fa fa-user"></i></a>
                     </li>
                     <li>
-                        <a href="#"><i className="fa fa-question-circle"></i></a>
+                        <a href="/faq"><i className="fa fa-question-circle"></i></a>
                     </li>
                     <li>
-                        <a href="#"><i className="fa fa-lock"></i></a>
+                        <a href="/change_password"><i className="fa fa-lock"></i></a>
                     </li>
                 </ul>
         </div>

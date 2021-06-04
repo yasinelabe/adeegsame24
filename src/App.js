@@ -9,6 +9,8 @@ import Dashboard from "./components/Presentation/Dashboard";
 import Home from "./components/Presentation/Home";
 import Privacy from "./components/Presentation/Privacy";
 import Success from "./components/Presentation/Success";
+import Notfound from "./components/Presentation/Notfound";
+import Profile from "./components/Presentation/Profile";
 
 function App() {
   return (
@@ -23,8 +25,9 @@ function App() {
           <ProtectedRoute exact path="/dashboard" component={Dashboard} />
           <ProtectedRoute exact path="/privacy" component={Privacy} />
           <ProtectedRoute exact path="/success" component={Success} />
+          <ProtectedRoute exact path="/profile" component={Profile} />
 
-          <Route path="*" render={() => "404 page not found"} />
+          <Route path="*" component={Notfound} />
         </Switch>
       </div>
     </RootProvider>

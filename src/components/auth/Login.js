@@ -30,6 +30,8 @@ export class Login extends Component {
       data,
     })
       .then((res) => {
+        console.log(res.data)
+
         if (res.data.valid) {
           localStorage.setItem("token", res.data.token);
           localStorage.setItem("user",res.data.user)
