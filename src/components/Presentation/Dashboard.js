@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-import { Link } from "react-router-dom";
 import auth from "../auth/auth";
 import axios from "axios";
 import API_URL from "../../config/config";

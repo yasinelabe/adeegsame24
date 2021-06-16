@@ -1,10 +1,11 @@
 import React from 'react'
-
+import { RootContext } from "../../../context/RootContext";
 export default function Footer() {
+    let context = React.useContext(RootContext);
     return (
         <div className="footer">
                 <ul>
-                    <li>
+                    <li className={context.getHome()}>
                         <a href="/"><i className="fa fa-home"></i></a>
                     </li>
                     <li>

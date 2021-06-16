@@ -52,6 +52,7 @@ export default function Checkout(props) {
             },
             
             "transactionInfo": {
+              "referenceId": 'testing',
                 "invoiceId": "8789wwerer2342344",
                 "amount": totalprice / 8500,
                 "currency": "USD",

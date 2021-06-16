@@ -1,7 +1,7 @@
 import React, {useState,useEffect } from 'react';
 import Products from '../Products';
 import { RootContext } from '../../../context/RootContext';
-
+import logo from '../../../images/sallad.png'
 
 const CategoriesList = (props) => {
 	
@@ -44,7 +44,18 @@ const CategoriesList = (props) => {
 			</div>
 		);
 	});
-	return CategoriesList;
+	return (
+
+		<React.Fragment>
+
+{CategoriesList}
+
+<div className="below">
+	<img src={logo} style={{width:"100%"}}/>
+</div>
+		</React.Fragment>
+		
+		);
 };
 
 export default CategoriesList;

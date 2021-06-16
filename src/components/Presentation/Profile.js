@@ -13,9 +13,27 @@ export default class Profile extends React.Component {
     fullname: JSON.parse(localStorage.getItem("user"))[0].fullname,
     phone: JSON.parse(localStorage.getItem("user"))[0].phone,
     address: JSON.parse(localStorage.getItem("user"))[0].address,
-    response: ''
+    response: '',
+    total_orders: 0
   };
 
+
+  componentDidMount(){
+    Axios({
+      method: "post",
+      url: `${API_URL}/count_orders`,
+      headers: { "content-type": "application/json" },
+      data: {phone:this.state.phone,token: localStorage.getItem("token") }
+    })
+      .then((res) => {
+        this.setState({
+          total_orders: res.data
+        })
+      })
+      .catch((err) => {
+
+      });
+  }
 
   handleChange = (e) => {
     e.preventDefault();
@@ -29,8 +47,11 @@ export default class Profile extends React.Component {
     if (this.state.phone.toString().length < 7) {
       return false;
     }
+
     const data = this.state;
+    data.token = localStorage.getItem('token')
     delete data.response;
+    delete data.total_orders;
     Axios({
       method: "post",
       url: `${API_URL}/edit_customer`,
@@ -40,8 +61,15 @@ export default class Profile extends React.Component {
       .then((res) => {
         if (res.data.success) {
           this.setState({ response: 'Waa la kaydiyay xogtaada.' })
+
+          setTimeout(() => {
+              this.setState({response:''})
+          }, 5000);
         } else {
           this.setState({ response: 'Cillad ayaa dhacday.' })
+          setTimeout(() => {
+            this.setState({response:''})
+        }, 5000);
         }
       })
       .catch((err) => {
@@ -57,16 +85,14 @@ export default class Profile extends React.Component {
           <div id="shadow" />
           <Nav />
           <section className="profile_dash">
-            <div className="profile_letter">
+            {/* <div className="profile_letter">
               {this.state.fullname[0]}
-            </div>
+            </div> */}
           </section>
           <section className="stats">
             <ul>
-              <li><h4><i className="fa fa-shopping-bag fs-22"></i> 10</h4></li>
-              <li><h4><i className="fa fa-list fs-22"></i> dalab</h4></li>
-              <li><h4><i className="fa fa-times fs-22"></i> dalab</h4></li>
-              <li><h4><i className="fa fa-check fs-22"></i> dalab</h4></li>
+              <li><h4><i className="fa fa-shopping-bag fs-22"></i> {this.state.total_orders} adeeg</h4></li>
+         
             </ul>
           </section>
 

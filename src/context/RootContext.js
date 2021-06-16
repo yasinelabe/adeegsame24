@@ -18,7 +18,11 @@ class RootProvider extends Component {
 			quantities: [],
 			popup: false,
 			selected: null,
-			dalabaat: []
+			dalabaat: [],
+			home: '',
+			profile: '',
+			pass: '',
+			faq: ''
 		};
 	}
 
@@ -149,7 +153,40 @@ class RootProvider extends Component {
 					},
 					getSelected : () =>{
 						return this.state.selected;
-					}
+					},
+					setHome: (v) =>{
+						this.setState({
+							home: 'active_tab'
+						})
+					},
+					getHome: () => {
+						return this.state.home
+					},
+					setProfile: (v) =>{
+						this.setState({
+							profile: 'active_tab'
+						})
+					},
+					getProfile: () => {
+						return this.state.profile
+					},
+					setFaq: (v) =>{
+						this.setState({
+							faq: 'active_tab'
+						})
+					},
+					getFaq: () => {
+						return this.state.faq
+					},
+					setPass: (v) =>{
+						this.setState({
+							pass: 'active_tab'
+						})
+					},
+					getPass: () => {
+						return this.state.pass
+					},
+					
 				}}
 			>
 				{this.props.children}

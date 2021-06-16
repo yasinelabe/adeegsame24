@@ -11,6 +11,7 @@ export default function GridContainer(props) {
   useEffect(() => {
     let contnt = document.getElementById("content");
     context.setContent(contnt.childNodes);
+    context.setHome();
   }, []);
 
   return (

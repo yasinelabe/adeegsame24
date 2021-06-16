@@ -1,2 +1,2 @@
-const API_URL = 'https://localhost/adeegside/api';
+const API_URL = 'https://adeegsame24.com/adeegside/api';
 export default API_URL
