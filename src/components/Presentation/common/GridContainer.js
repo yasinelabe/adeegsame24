@@ -24,9 +24,9 @@ export default function GridContainer(props) {
       <section id="content">
         <Categories />
       </section>
-      <section>
+      {/* <section>
         <Footer/>
-      </section>
+      </section> */}
     </div>
   );
 }

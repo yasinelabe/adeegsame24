@@ -137,9 +137,9 @@ export default class Profile extends React.Component {
               </div> : ''
             }
           </form>
-          <section>
+          {/* <section>
             <Footer />
-          </section>
+          </section> */}
         </div>
       </div>
     )

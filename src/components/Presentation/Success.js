@@ -21,7 +21,7 @@ export default function Success() {
                       ayaa kuso wici doonta  !</h6>
                 </div>
                 <div className="card-button">
-                   <a href="/home" className="btn goback btn-large">Waan Gartay</a>
+                   <a href="/home" className="btn goback btn-large">Haye</a>
                 </div>
             </div>
 

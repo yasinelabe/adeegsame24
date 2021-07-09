@@ -1,4 +1,4 @@
-import React,{useState} from 'react';
+import React, { useState } from 'react';
 
 import auth from '../../auth/auth';
 export default function Nav(props) {
@@ -11,40 +11,43 @@ export default function Nav(props) {
 	return (
 		<nav id="sidenav">
 			<div className="hero_image" />
-		<div className="user_info">
-			<h5>{user.fullname}</h5>
-			<small>@{user.phone}</small>
-			<div className="customer_name">
+			<div className="user_info">
+				<h5>{user.fullname}</h5>
+				<small>@{user.phone}</small>
+				<div className="customer_name">
 					{user.fullname[0]}
+				</div>
 			</div>
-		</div>
-			
+
 			<div className="nav_list">
 				<ul className="fa-ul">
 					<li>
-						<a href="/" style={{textDecoration:'none',color:'black'}}>
+						<a href="/" style={{ textDecoration: 'none', color: 'black' }}>
 							<span className="nav_icons">
 								<i className="fa fa-home" />
 							</span>Home
 						</a>
 					</li>
-			
+
 					<li>
-					<a href="/privacy" style={{textDecoration:'none',color:'black'}}>
+						<a href="/privacy" style={{ textDecoration: 'none', color: 'black' }}>
 							<span className="nav_icons">
 								<i className="fa fa-lock" />
 							</span>Privacy Policy
 						</a>
 					</li>
 					<li>
-						<span className="nav_icons">
-							<i className="fa fa-question-circle" />
-						</span>FAQ
+						<a href="/profile" style={{ textDecoration: 'none', color: 'black' }}>
+							<span className="nav_icons">
+								<i className="fa fa-user" />
+							</span>Profile
+						</a>
 					</li>
 					<li>
-						<span className="nav_icons">
+						<a target="_blank" href="https://play.google.com/store/apps/details?id=com.adeegsame24.adeegsame24" style={{ textDecoration: 'none', color: 'black' }}>					<span className="nav_icons">
 							<i className="fa fa-star" />
 						</span>Rate Us
+						</a>
 					</li>
 					<li onClick={() => handleLogout()}>
 						<span className="nav_icons">
@@ -53,6 +56,6 @@ export default function Nav(props) {
 					</li>
 				</ul>
 			</div>
-		</nav>
+		</nav >
 	);
 }
