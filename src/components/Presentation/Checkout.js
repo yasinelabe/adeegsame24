@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { RootContext } from "../../context/RootContext";
 import API_URL from "../../config/config";
 import axios from "axios";
@@ -7,10 +7,11 @@ import { Redirect } from "react-router";
 export default function Checkout(props) {
   let context = React.useContext(RootContext);
   let cart = context.getCart();
-  // console.log(cart);
   let totalprice = 0;
+  const [clicked, setclicked] = useState(false)
 
   const handleDalab = () => {
+    setclicked(true)
     const order = [
       context.getCart(),
       { token: localStorage.getItem("token"), totalprice: totalprice },
@@ -30,40 +31,40 @@ export default function Checkout(props) {
       .catch((err) => {
         console.log(err);
       })
-    //  axios({
-    //   method: "post",
-    //   url: "https://api.waafi.com/asm",
-    //   headers: { "content-type": "application/json" },
-    //   data: JSON.stringify({
-    //     "schemaVersion": "1.0",
-    //     "requestId": "123122",
-    //     "timestamp": Date.now(),
-    //     "channelName": "WEB",
-    //     "serviceName": "API_PURCHASE",
-    //     "sessionId": localStorage.getItem("token"),
-    //     "serviceParams": {
-    //         "merchantUid": "M0910238",
-    //         "apiUserId": "1000307",
-    //         "apiKey": "API-1441673838AHX",
-    //         "paymentMethod": "MWALLET_ACCOUNT",
-    //         "payerInfo": {
-    //           "accountNo": JSON.parse(localStorage.getItem("user"))[0].phone,
-    //           "accountHolder": JSON.parse(localStorage.getItem("user"))[0].fullname
-    //         },
-            
-    //         "transactionInfo": {
-    //           "referenceId": 'testing',
-    //             "invoiceId": "8789wwerer2342344",
-    //             "amount": totalprice / 8500,
-    //             "currency": "USD",
-    //             "description": "iib adeegsame24 "
-             
-    //         }
-    //     }
-    // }),
-    // })
+      //  axios({
+      //   method: "post",
+      //   url: "https://api.waafi.com/asm",
+      //   headers: { "content-type": "application/json" },
+      //   data: JSON.stringify({
+      //     "schemaVersion": "1.0",
+      //     "requestId": "123122",
+      //     "timestamp": Date.now(),
+      //     "channelName": "WEB",
+      //     "serviceName": "API_PURCHASE",
+      //     "sessionId": localStorage.getItem("token"),
+      //     "serviceParams": {
+      //         "merchantUid": "M0910238",
+      //         "apiUserId": "1000307",
+      //         "apiKey": "API-1441673838AHX",
+      //         "paymentMethod": "MWALLET_ACCOUNT",
+      //         "payerInfo": {
+      //           "accountNo": JSON.parse(localStorage.getItem("user"))[0].phone,
+      //           "accountHolder": JSON.parse(localStorage.getItem("user"))[0].fullname
+      //         },
+
+      //         "transactionInfo": {
+      //           "referenceId": 'testing',
+      //             "invoiceId": "8789wwerer2342344",
+      //             "amount": totalprice / 8500,
+      //             "currency": "USD",
+      //             "description": "iib adeegsame24 "
+
+      //         }
+      //     }
+      // }),
+      // })
       .then((res) => {
-       console.log(res)
+        console.log(res)
       })
       .catch((err) => {
         console.log(err);
@@ -111,15 +112,18 @@ export default function Checkout(props) {
           </tr>
         </tfoot>
       </table>
-      <button
-        className="checkout no-print"
-        onClick={() => {
-          handleDalab();
-        }}
-      >
-        iibso
-      </button>
-      
+      {
+        !clicked ? <button
+          className="checkout no-print"
+          onClick={() => {
+            handleDalab();
+          }}
+        >
+          iibso
+        </button> : <div className="loader checkout_loader"></div>
+      }
+
+
     </React.Fragment>
   );
 }

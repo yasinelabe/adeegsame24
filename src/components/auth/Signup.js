@@ -29,8 +29,8 @@ export class Signup extends Component {
       document.querySelector(".notify").style.padding = "10px";
 
       document.querySelector(".notify").innerHTML =
-        "<p>Number saxsan diwaan gali!</p>";
-      document.querySelector(".notify").style.height = "40vh";
+        "<p>Fadlan number saxsan isticmaal!</p>";
+      document.querySelector(".notify").style.height = "10vh";
       document.querySelector(".notify").style.overflow = "hidden";
       document.querySelector(".notify").style.background = "red";
 
@@ -54,7 +54,7 @@ export class Signup extends Component {
           document.querySelector(".notify").style.padding = "10px";
           document.querySelector(".notify").innerHTML =
             "<p>waad is diwaan galisay mahadsanid</p>";
-          document.querySelector(".notify").style.height = "40vh";
+          document.querySelector(".notify").style.height = "10vh";
           document.querySelector(".notify").style.overflow = "hidden";
           document.querySelector(".notify").style.background = "green";
 
@@ -69,7 +69,7 @@ export class Signup extends Component {
 
           document.querySelector(".notify").innerHTML =
             "<p>numberka aad isticmaashay hore ayaa la isugu diwan galiyay</p>";
-          document.querySelector(".notify").style.height = "40vh";
+          document.querySelector(".notify").style.height = "10vh";
           document.querySelector(".notify").style.overflow = "hidden";
           document.querySelector(".notify").style.background = "red";
 
@@ -83,7 +83,7 @@ export class Signup extends Component {
 
           document.querySelector(".notify").innerHTML =
             "<p>khadka ayaa kaa xun!</p>";
-          document.querySelector(".notify").style.height = "40vh";
+          document.querySelector(".notify").style.height = "10vh";
           document.querySelector(".notify").style.overflow = "hidden";
           document.querySelector(".notify").style.background = "red";
 
@@ -99,7 +99,7 @@ export class Signup extends Component {
 
         document.querySelector(".notify").innerHTML =
           "<p>Cillad ayaa dhacday, mar kale isku day!</p>";
-        document.querySelector(".notify").style.height = "40vh";
+        document.querySelector(".notify").style.height = "10vh";
         document.querySelector(".notify").style.overflow = "hidden";
         document.querySelector(".notify").style.background = "red";
 

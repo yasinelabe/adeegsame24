@@ -43,7 +43,7 @@ export class Login extends Component {
           document.querySelector(".notify").style.padding = "5px";
           document.querySelector(".notify").innerHTML =
             '<h4 style="margin-top:0;">Xog khaldan ayad galisay!</h4>';
-          document.querySelector(".notify").style.height = "40vh";
+          document.querySelector(".notify").style.height = "10vh";
           document.querySelector(".notify").style.overflow = "hidden";
           document.querySelector(".notify").style.background = "red";
 
@@ -58,7 +58,7 @@ export class Login extends Component {
         document.querySelector(".notify").style.padding = "5px";
         document.querySelector(".notify").innerHTML =
           '<h4 style="margin-top:0;">Xog khaldan ayad galisay!</h4>';
-        document.querySelector(".notify").style.height = "40vh";
+        document.querySelector(".notify").style.height = "10vh";
         document.querySelector(".notify").style.overflow = "hidden";
         document.querySelector(".notify").style.background = "red";
 
