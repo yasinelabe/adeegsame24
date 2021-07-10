@@ -800,4 +800,5 @@ form.profile_form {
 
 .App {
   width: 100%;
+  overflow: hidden;
 }
